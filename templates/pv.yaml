@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: my-pv  # Replace with your desired PV name
+spec:
+  capacity:
+    storage: 2Gi  # Adjust storage capacity as needed
+  volumeMode: Filesystem  # Or Block if you need block storage
+  accessModes:
+    - ReadWriteMany # Allows one node to mount the volume as read-write
+  persistentVolumeReclaimPolicy: Retain # Or Recycle, Delete
+  storageClassName: standard # Or use a StorageClass for dynamic provisioning
+  hostPath:
+    path: "/Users/r0g0ajw/Downloads" # Path on the node where the volume resides
